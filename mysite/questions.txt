@@ -1,0 +1,31 @@
+1. 
+https://github.com/vaibhavchugh17/CMPUT404_LAB4
+
+2. 
+The browser shows us a webpage saying the installation was successful.
+
+3. 
+When navigating to "/" we see a "Page not found" webpage which is because we didn't map any view to the root of our website inside urls.py of mysite. When navigating to "/polls", we see a webpage saying ""Hello, world. You're at the polls index." which is the HttpResponse returned by the view "index" inside our polls app.
+
+4. 
+we use migrations to create or update database tables using models defined under models.py in certain apps. We need them because they just act like a version control system but for database schemas. We can make changes in our models in our code and migrate all of them to our database using migrations.
+
+5. 
+We see a django admin panel which django has already created for us. It is just another app where we can manage authentication, authorization and any other apps that we register. 
+We can get custom models to appear my registering them through our django admin using admin.site.register(model_name)
+
+6. 
+We see the following Http Responses when going to links specified in the question
+/polls/38: You're looking at question 38.
+/polls/38/results: You're looking at the results of question 38.
+/polls/38/vote: You're voting on question 38.
+
+If we put a string instead of a number, we see page not found error.
+To fix this inside the urls.py, for every path instead of specifying <int:question_id> we can probably use regex to allow all arbitrary alphabetic characters
+
+7. 
+Hardcoding urls into templates makes our code less scalable/generic in the sense that if we end up changing a url, we would need to change it at every template we hardcoded into. So a better approach is to just point to the urls.py url and it would refer to that everytime, even if we end up changing it.
+
+8.
+The benefit of using Django's generic views is that they abstract the common patterns that we follow while writing python code for every single view. So we can use this generic view "template" to avoid writing redundant code.
+When our code is very complex in the sense that it's not common to any generic view defined, then it's not the best practice to use the generic views. We should write the code ourselves. 
