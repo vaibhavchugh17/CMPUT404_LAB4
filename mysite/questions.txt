@@ -21,7 +21,7 @@ We see the following Http Responses when going to links specified in the questio
 /polls/38/vote: You're voting on question 38.
 
 If we put a string instead of a number, we see page not found error.
-To fix this inside the urls.py, for every path instead of specifying <int:question_id> we can probably use regex to allow all arbitrary alphabetic characters
+To fix this inside the urls.py, for every path instead of specifying <int:question_id> we can probably use regex or change the datatype to string to allow all arbitrary alphabetic characters.
 
 7. 
 Hardcoding urls into templates makes our code less scalable/generic in the sense that if we end up changing a url, we would need to change it at every template we hardcoded into. So a better approach is to just point to the urls.py url and it would refer to that everytime, even if we end up changing it.
